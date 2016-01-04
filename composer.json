@@ -1,6 +1,6 @@
 {
     "name": "networking/init-cms-bundle",
-    "description": "This Bundle is a basic cms based on symfony",
+    "description": "This Bundle is a basic cms based on symfony2 and sonata packages.",
     "keywords": ["symfony", "cms"],
     "type": "symfony-bundle",
     "license": "MIT",
