@@ -9,6 +9,10 @@
             "name": "Yorkie Chadwick",
             "homepage": "http://web.networking.ch",
             "email": "y.chadwick@networking.ch"
+        },
+        {
+            "name": "Andraž Jalovec",
+            "email": "andraz.jalovec@gmail.com"
         }
     ],
     "require": {
