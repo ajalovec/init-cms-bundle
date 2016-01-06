@@ -17,4 +17,16 @@ namespace Networking\InitCmsBundle\Entity;
  */
 class Text extends BaseText{
 
+
+    /**
+     * @return array
+     */
+    public function getAdminContent()
+    {
+        $params = parent::getAdminContent();
+        $params['template'] = 'CmsBundle:ContentType:text.html.twig';
+
+        return $params;
+    }
+
 }

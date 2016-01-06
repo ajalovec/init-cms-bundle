@@ -25,5 +25,17 @@ class GalleryView extends ModelGalleryView
         $this->updatedAt = new \DateTime('now');
     }
 
+
+    /**
+     * @return array
+     */
+    public function getAdminContent()
+    {
+        $params = parent::getAdminContent();
+        $params['template'] = 'CmsBundle:ContentType:gallery_view.html.twig';
+
+        return $params;
+    }
+
 }
 

@@ -32,10 +32,10 @@ abstract class Text implements ContentInterface
      *      name="text",
      *      type="ckeditor",
      *      options={
-     *          "label_render" = false,
+     *          "horizontal" = true,
      *          "horizontal_input_wrapper_class" = "col-md-12",
      *          "horizontal_label_offset_class" = "",
-     *          "label" = false,
+     *          "label" = "Text",
      *          "required"=false
      *      }
      * )

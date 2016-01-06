@@ -272,6 +272,10 @@
                 <source>list.label_full_path</source>
                 <target>URL</target>
             </trans-unit>
+            <trans-unit id="list.label_template">
+                <source>list.label_template</source>
+                <target>Template</target>
+            </trans-unit>
             <trans-unit id="filter.label_locale">
                 <source>filter.label_locale</source>
                 <target>Language</target>

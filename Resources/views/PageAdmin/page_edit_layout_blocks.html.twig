@@ -59,7 +59,6 @@ file that was distributed with this source code.
                         {% for layout_block_field_name, layout_block_field in get_sub_form_by_zone(form.children, zone.name) %}
                             {% set layoutBlockContent = render_initcms_admin_block(layout_block_field.vars.value) %}
                             {% if layoutBlockContent %}
-
                                 <li class="networking-sortable-list networking-sort-zone"
                                     id="layoutBlock_{{ layout_block_field.vars.value.id }}"
                                     data-content-type="{{ layout_block_field.vars.value.classType }}">
@@ -97,11 +96,22 @@ file that was distributed with this source code.
                                                         </div>
                                                     {% endif %}
 
+                                                    <div class="form-inline">
+                                                        {#{{ form_label(layout_block_field['zone']) }}#}
+                                                        {#{{ form_widget(layout_block_field['zone']) }}#}
+
+                                                        {{ form_label(layout_block_field['name']) }}
+                                                        {{ form_widget(layout_block_field['name']) }}
+                                                    </div>
+                                                    <br>
+                                                    <br>
+
                                                     {{ form_widget(layout_block_field['content']) }}
 
+                                                    <br>
+                                                    {{ form_rest(layout_block_field) }}
                                                 </div>
                                                 <div class="modal-footer">
-                                                    {{ form_rest(layout_block_field) }}
                                                     <button class="btn btn-default" data-dismiss="modal"
                                                             aria-hidden="true">{{ 'button.cancel'|trans({}, 'PageAdmin') }}</button>
                                                         <a onclick="return updateLayoutBlock(this, {{ layout_block_field.vars.value.id }});"

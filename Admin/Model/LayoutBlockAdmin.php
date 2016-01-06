@@ -12,6 +12,7 @@ namespace Networking\InitCmsBundle\Admin\Model;
 
 use JMS\Serializer\Serializer;
 use Networking\InitCmsBundle\Model\LayoutBlock;
+use Networking\InitCmsBundle\Model\LayoutBlockFormListener;
 use Networking\InitCmsBundle\Model\PageInterface;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -61,7 +62,7 @@ abstract class LayoutBlockAdmin extends BaseAdmin
         } else {
             $classType = $this->getRequest()->get('classType');
         }
-        /** @var \Networking\InitCmsBundle\Model\LayoutBlockFormListener $listener */
+        /** @var LayoutBlockFormListener $listener */
         $listener = $this->getContainer()->get('networking_init_cms.layout_block_form_listener');
         $listener->setAdmin($this);
         $listener->setContentType($classType);
@@ -72,10 +73,8 @@ abstract class LayoutBlockAdmin extends BaseAdmin
 
 
         $formMapper
-            ->add(
-                'zone',
-                'hidden'
-            )
+            ->add('name', 'text')
+            ->add('zone', 'hidden')
             ->add(
                 $formMapper->getFormBuilder()->create('page', 'hidden')
                     ->addModelTransformer($transformer),
@@ -101,7 +100,7 @@ abstract class LayoutBlockAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
+            ->addIdentifier('id')
             ->add('page')
             ->add('isActive');
     }

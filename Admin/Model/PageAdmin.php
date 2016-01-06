@@ -510,8 +510,16 @@ abstract class PageAdmin extends BaseAdmin
                 'fullPath',
                 null,
                 array(
-                    'sortable' => false,
+                    'sortable' => true,
                 )
+            )
+            ->add(
+                'templateName',
+                null,
+                [
+                    'label'    => 'list.label_template',
+                    'sortable' => false,
+                ]
             );
 
         $listMapper->add(
