@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\GalleryView:
   type: entity
-  table: gallery_view
+  table: content_gallery
   id:
     id:
       type: integer

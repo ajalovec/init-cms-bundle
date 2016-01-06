@@ -18,7 +18,7 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
  *
  * Networking\InitCmsBundle\Entity\Group
  *
- * @ORM\Table(name="fos_user_group")
+ * @ORM\Table(name="cms_user_group")
  * @ORM\Entity()
  */
 class Group extends BaseGroup

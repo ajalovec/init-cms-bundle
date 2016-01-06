@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\HelpText:
   type: entity
-  table: help_text
+  table: cms_help_text
   id:
     id:
       type: integer

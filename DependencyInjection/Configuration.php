@@ -59,6 +59,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('page')->defaultValue('Application\\Networking\\InitCmsBundle\\Entity\\Page')->end()
                         ->scalarNode('layout_block')->defaultValue('Networking\\InitCmsBundle\\Entity\\LayoutBlock')->end()
                         ->scalarNode('user')->defaultValue('Application\\Networking\\InitCmsBundle\\Entity\\User')->end()
+            ->scalarNode('content_text')->defaultValue('Networking\\InitCmsBundle\\Entity\\Text')->end()
+            ->scalarNode('content_gallery')->defaultValue('Networking\\InitCmsBundle\\Entity\\GalleryView')->end()
                     ->end()
                 ->end()
                 ->scalarNode('translation_fallback_route')->defaultValue('initcms_404')->end()

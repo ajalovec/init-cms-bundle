@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\PageSnapshot:
   type: entity
-  table: page_snapshot
+  table: cms_page_snapshot
   id:
     id:
       type: integer

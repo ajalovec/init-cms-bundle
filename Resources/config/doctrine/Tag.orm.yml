@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\Tag:
   type: entity
-  table: tag
+  table: cms_media_tag
   repositoryClass: Doctrine\ORM\EntityRepository
   id:
     id:

@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\ContentRoute:
   type: entity
-  table: content_route
+  table: cms_page_route
   id:
     id:
       type: integer

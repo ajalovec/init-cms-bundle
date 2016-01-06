@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\Gallery:
   type: entity
-  table: media__gallery
+  table: cms_media_gallery
   id:
     id:
       type: integer

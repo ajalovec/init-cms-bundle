@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\Media:
   type: entity
-  table: media__media
+  table: cms_media
   id:
     id:
       type: integer
@@ -11,18 +11,20 @@ Networking\InitCmsBundle\Entity\Media:
       type: string
       length: 6
       nullable: true
-  oneToMany:
-    galleryHasMedias:
-      targetEntity: Networking\InitCmsBundle\Entity\GalleryHasMedia
-      mappedBy: media
-      cascade: ["remove"]
-      orphan-removal: true
+
+# association already created in bundle extension
+#  oneToMany:
+#    galleryHasMedias:
+#      targetEntity: Networking\InitCmsBundle\Entity\GalleryHasMedia
+#      mappedBy: media
+#      cascade: ["remove"]
+#      orphan-removal: true
   manyToMany:
     tags:
       targetEntity: Networking\InitCmsBundle\Entity\Tag
       orphan-removal: true
       joinTable:
-        name: media_tags
+        name: cms_media_tag_media
         joinColumns:
           media_id:
             referencedColumnName: id

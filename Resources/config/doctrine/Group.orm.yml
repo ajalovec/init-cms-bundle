@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\Group:
   type: entity
-  table: fos_user_group
+  table: cms_user_group
   id:
     id:
       type: integer

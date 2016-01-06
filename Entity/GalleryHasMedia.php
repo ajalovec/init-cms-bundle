@@ -17,8 +17,8 @@ use Sonata\MediaBundle\Entity\BaseGalleryHasMedia as BaseGalleryHasMedia;
 /**
  * @author Yorkie Chadwick <y.chadwick@networking.ch>
  *
- * @ORM\Table(name="media__gallery_media")
- * @ORM\Entity()
+ * ORM\Table(name="media__gallery_media")
+ * ORM\Entity()
  */
 class GalleryHasMedia extends BaseGalleryHasMedia
 {

@@ -1,6 +1,6 @@
 Networking\InitCmsBundle\Entity\Text:
   type: entity
-  table: text
+  table: content_text
   id:
     id:
       type: integer

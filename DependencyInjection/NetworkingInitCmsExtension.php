@@ -89,7 +89,7 @@ class NetworkingInitCmsExtension extends Extension
         $container->setParameter('networking_init_cms.db_driver', $config['db_driver']);
 
         if ($config['db_driver'] == 'orm') {
-            $this->registerDoctrineORMMapping($config);
+            $this->registerDoctrineORMMapping($config, $container);
         }
 
         $container->setParameter('networking_init_cms.cache.activate', $config['cache']['activate']);
@@ -113,15 +113,20 @@ class NetworkingInitCmsExtension extends Extension
      */
     public function configureClass($config, ContainerBuilder $container)
     {
-        // admin configuration
-        $container->setParameter('networking_init_cms.admin.page.class', $config['class']['page']);
-        $container->setParameter('networking_init_cms.admin.layout_block.class', $config['class']['layout_block']);
-        $container->setParameter('networking_init_cms.admin.user.class', $config['class']['user']);
+        foreach ($config['class'] as $name => $class) {
+            $container->setParameter('networking_init_cms.admin.' . $name . '.class', $class);
+            $container->setParameter('networking_init_cms.manager.' . $name . '.class', $class);
+        }
 
-        // manager configuration
-        $container->setParameter('networking_init_cms.manager.page.class', $config['class']['page']);
-        $container->setParameter('networking_init_cms.manager.layout_block.class', $config['class']['layout_block']);
-        $container->setParameter('networking_init_cms.manager.user.class', $config['class']['user']);
+//        // admin configuration
+//        $container->setParameter('networking_init_cms.admin.page.class', $config['class']['page']);
+//        $container->setParameter('networking_init_cms.admin.layout_block.class', $config['class']['layout_block']);
+//        $container->setParameter('networking_init_cms.admin.user.class', $config['class']['user']);
+//
+//        // manager configuration
+//        $container->setParameter('networking_init_cms.manager.page.class', $config['class']['page']);
+//        $container->setParameter('networking_init_cms.manager.layout_block.class', $config['class']['layout_block']);
+//        $container->setParameter('networking_init_cms.manager.user.class', $config['class']['user']);
 
         if($config['db_driver'] == 'mongodb'){
 
@@ -160,7 +165,7 @@ class NetworkingInitCmsExtension extends Extension
     /**
      * @param array $config
      */
-    public function registerDoctrineORMMapping(array $config)
+    public function registerDoctrineORMMapping(array $config, ContainerBuilder $container)
     {
         foreach ($config['class'] as $type => $class) {
 
@@ -187,7 +192,6 @@ class NetworkingInitCmsExtension extends Extension
             )
         );
 
-
         $collector->addAssociation(
             $config['class']['page'],
             'mapManyToMany',
@@ -197,8 +201,8 @@ class NetworkingInitCmsExtension extends Extension
                 'inversedBy' => "translations",
                 'cascade' => array('persist'),
                 'joinTable' => array(
-                    'name' => 'page_translation',
-                    'joinColumns' => array(
+                    'name'               => $container->getParameter('cms.table.page_translation'),
+                    'joinColumns'        => array(
                         array(
                             'name' => 'translation_id',
                             'referencedColumnName' => 'id'
